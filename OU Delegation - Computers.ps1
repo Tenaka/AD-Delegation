@@ -24,7 +24,7 @@ Set-Acl -Path $OU -AclObject $ouACL
 $ActiveDirectoryRights = [System.DirectoryServices.ActiveDirectoryRights]::CreateChild
 $AccessControlType = [System.Security.AccessControl.AccessControlType]::Allow
 $ObjectType = [guid] "bf967a86-0de6-11d0-a285-00aa003049e2"
-$InheritanceType = [System.DirectoryServices.ActiveDirectorySecurityInheritance]::Descendents
+$InheritanceType = [System.DirectoryServices.ActiveDirectorySecurityInheritance]::SelfAndChildren
 $InheritedObjectType = [guid] "00000000-0000-0000-0000-000000000000"
 $ACE = New-Object System.DirectoryServices.ActiveDirectoryAccessRule $gpIndent, $ActiveDirectoryRights, $AccessControlType, $ObjectType, $InheritanceType, $InheritedObjectType
 
@@ -34,7 +34,7 @@ Set-Acl -Path $OU -AclObject $ouACL
 $ActiveDirectoryRights = [System.DirectoryServices.ActiveDirectoryRights]::DeleteChild
 $AccessControlType = [System.Security.AccessControl.AccessControlType]::Allow
 $ObjectType = [guid] "bf967a86-0de6-11d0-a285-00aa003049e2"
-$InheritanceType = [System.DirectoryServices.ActiveDirectorySecurityInheritance]::Descendents
+$InheritanceType = [System.DirectoryServices.ActiveDirectorySecurityInheritance]::SelfAndChildren
 $InheritedObjectType = [guid] "00000000-0000-0000-0000-000000000000"
 $ACE = New-Object System.DirectoryServices.ActiveDirectoryAccessRule $gpIndent, $ActiveDirectoryRights, $AccessControlType, $ObjectType, $InheritanceType, $InheritedObjectType
 
