@@ -6,7 +6,7 @@ Set-Location AD:
 
 $ouACL = (get-acl -path $OU).Access
 $getGp = Get-ADGroup -Identity $GroupName
-$GroupSID = [System.Security.Principal.SecurityIdentifier] $Group.SID
+$GroupSID = [System.Security.Principal.SecurityIdentifier] $getGp.SID
 $ouACL = Get-Acl -Path $OU
 
 $gpIndent = [System.Security.Principal.IdentityReference] $GroupSID
